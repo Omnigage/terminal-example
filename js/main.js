@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
 
     // unlock/show step2
     $('#remaining-steps').addClass('active');
-    // Setup global variables
+    // Set global variables
     window.Omnigage.terminal.ready(function() {
       Omnigage = window.Omnigage;
       oTerminal = Omnigage.terminal;
@@ -44,6 +44,30 @@ jQuery(document).ready(function($) {
       from: inputFrom,
       parentTo: inputParentTo,
       voiceTemplate: inputVoiceTemplate,
+    });
+  });
+  $('#form-texter').on('submit', function (e) {
+    e.preventDefault();
+    var inputTo = $(this).find('.inputTo').val();
+    var inputFrom = $(this).find('.inputFrom').val();
+    var inputBody = $(this).find('.inputBody').val();
+    oTerminal.inputs({
+      to: inputTo,
+      from: inputFrom,
+      body: inputBody,
+    });
+  });
+  $('#form-emailer').on('submit', function (e) {
+    e.preventDefault();
+    var inputTo = $(this).find('.inputTo').val();
+    var inputFrom = $(this).find('.inputFrom').val();
+    var inputSubject = $(this).find('.inputSubject').val();
+    var inputBody = $(this).find('.inputBody').val();
+    oTerminal.inputs({
+      to: inputTo,
+      from: inputFrom,
+      subject: inputSubject,
+      body: inputBody,
     });
   });
 

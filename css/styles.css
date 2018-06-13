@@ -1,3 +1,16 @@
+header{
+  padding: 100px 0;
+}
+section {
+  padding: 80px 0;
+}
+.panel{
+  padding: 40px 0;
+}
+.bg-secondary-alt{
+  background-color:#777d87;
+}
+
 #remaining-steps{
   display:none;
 }
