@@ -1,1 +1,6 @@
-
+#remaining-steps{
+  display:none;
+}
+#remaining-steps.active{
+  display:block;
+}
