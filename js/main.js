@@ -6,17 +6,22 @@ jQuery(document).ready(function($) {
   $('#form-render').on('submit', function (e) {
     e.preventDefault();
     var script = document.createElement('script');
-    script.text = $('#terminalEmbedCode').val();
+    var scriptValue = $('#terminalEmbedCode').val();
+    // simple stripping of script tags for easier injection/execution
+    scriptValue = scriptValue.replace('<script>', '');
+    scriptValue = scriptValue.replace('</script>', '');
+    script.text = scriptValue;
     document.body.appendChild(script);
 
-    // unlock/show step2
-    $('#remaining-steps').addClass('active');
     // Set global variables
     window.Omnigage.terminal.ready(function() {
       Omnigage = window.Omnigage;
       oTerminal = Omnigage.terminal;
       // lock the form
       $('#form-render').find('input, textarea, button, select').attr('disabled', true);
+
+      // unlock/show step2
+      $('#remaining-steps').addClass('active');
     });
   });
 
@@ -41,6 +46,7 @@ jQuery(document).ready(function($) {
   // input buttons
   $('#form-dialer').on('submit', function (e) {
     e.preventDefault();
+    oTerminal.show('dialer');
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputParentTo = $(this).find('.inputParentTo').val();
@@ -54,6 +60,7 @@ jQuery(document).ready(function($) {
   });
   $('#form-texter').on('submit', function (e) {
     e.preventDefault();
+    oTerminal.show('texter');
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputBody = $(this).find('.inputBody').val();
@@ -65,6 +72,7 @@ jQuery(document).ready(function($) {
   });
   $('#form-emailer').on('submit', function (e) {
     e.preventDefault();
+    oTerminal.show('emailer');
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputSubject = $(this).find('.inputSubject').val();
@@ -78,9 +86,9 @@ jQuery(document).ready(function($) {
   });
   $('#form-voiceTemplate').on('submit', function (e) {
     e.preventDefault();
+    oTerminal.show('voiceTemplatesAdd');
     var inputName = $(this).find('.inputName').val();
     var inputKind = $(this).find('.inputKind option:selected').val();
-    console.log('inputKind', inputKind);
     oTerminal.inputs({
       name: inputName,
       kind: inputKind,
@@ -88,3 +96,5 @@ jQuery(document).ready(function($) {
   });
 
 });
+
+
