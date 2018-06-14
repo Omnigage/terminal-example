@@ -64,5 +64,8 @@ gulp.task('watch', function () {
   gulp.watch(configuration.paths.src.js, ['js']);
 });
 
+// Gulp build
+gulp.task('build', ['html', 'css', 'js']);
+
 // Gulp default task
 gulp.task('default', ['html', 'css', 'js', 'connect', 'watch']);

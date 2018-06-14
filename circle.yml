@@ -1,0 +1,16 @@
+# circle.yml
+machine:
+  node:
+    version: 6.11.0
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  pre:
+    - bash -x tools/setup.sh
+
+deployment:
+  production:
+    branch: production
+    commands:
+      - bash -x tools/deploy.sh
