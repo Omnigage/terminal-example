@@ -1,0 +1,27 @@
+{
+  "name": "terminal-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omnigage/terminal-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omnigage/terminal-example/issues"
+  },
+  "homepage": "https://github.com/Omnigage/terminal-example#readme",
+  "devDependencies": {
+    "bootstrap": "^4.1.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.5.0",
+    "jquery": "^2.2.4"
+  },
+  "dependencies": {}
+}
