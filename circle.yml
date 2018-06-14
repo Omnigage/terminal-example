@@ -9,6 +9,10 @@ dependencies:
   pre:
     - bash -x tools/setup.sh
 
+test:
+  override:
+    - echo 1; # No tests
+
 deployment:
   production:
     branch: production
