@@ -25,7 +25,7 @@
             <form id="form-render">
               <div class="form-group">
                 <label for="terminalEmbedCode">Embed Code</label>
-                <textarea class="form-control" id="terminalEmbedCode" rows="6"></textarea>
+                <textarea class="form-control" id="terminalEmbedCode" rows="7"></textarea>
               </div>
               <button type="submit" class="btn btn-white">Render</button>
             </form>
@@ -105,6 +105,27 @@
             </form>
           </div>
         </div>
+
+        <div class="row panel">
+          <div class="col-6">
+            <h3>Voice Template</h3>
+            <form id="form-voiceTemplate">
+              <div class="form-group">
+                <label for="voiceTemplateInputName">Name</label>
+                <input type="text" class="form-control inputName" id="voiceTemplateInputName" placeholder="Name">
+              </div>
+              <div class="form-group">
+                  <label for="voiceTemplateInputKind">Kind</label>
+                  <select class="form-control inputKind" id="voiceTemplateInputKind">
+                    <option value="audio">Audio</option>
+                    <option value="text">Text</option>
+                  </select>
+                </div>
+              <button id="terminal-show-voiceTemplate" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+            </form>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>

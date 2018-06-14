@@ -15,6 +15,8 @@ jQuery(document).ready(function($) {
     window.Omnigage.terminal.ready(function() {
       Omnigage = window.Omnigage;
       oTerminal = Omnigage.terminal;
+      // lock the form
+      $('#form-render').find('input, textarea, button, select').attr('disabled', true);
     });
   });
 
@@ -30,6 +32,10 @@ jQuery(document).ready(function($) {
   $('#terminal-show-emailer').on('click', function (e) {
     e.preventDefault();
     oTerminal.show('emailer');
+  });
+  $('#terminal-show-voiceTemplate').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.show('voiceTemplatesAdd');
   });
 
   // input buttons
@@ -68,6 +74,16 @@ jQuery(document).ready(function($) {
       from: inputFrom,
       subject: inputSubject,
       body: inputBody,
+    });
+  });
+  $('#form-voiceTemplate').on('submit', function (e) {
+    e.preventDefault();
+    var inputName = $(this).find('.inputName').val();
+    var inputKind = $(this).find('.inputKind option:selected').val();
+    console.log('inputKind', inputKind);
+    oTerminal.inputs({
+      name: inputName,
+      kind: inputKind,
     });
   });
 
