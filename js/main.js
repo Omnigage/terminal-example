@@ -102,12 +102,8 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.show('engagementsAdd');
     var inputName = $(this).find('.inputName').val();
-    var inputDirection = $(this).find('.inputDirection option:selected').val();
-    var inputList = $(this).find('.inputList').val();
     oTerminal.inputs({
       name: inputName,
-      direction: inputDirection,
-      list: inputList,
     });
   });
 
