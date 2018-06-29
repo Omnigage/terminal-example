@@ -42,6 +42,10 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.show('voiceTemplatesAdd');
   });
+  $('#terminal-show-engagement').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.show('engagementsAdd');
+  });
 
   // input buttons
   $('#form-dialer').on('submit', function (e) {
@@ -92,6 +96,14 @@ jQuery(document).ready(function($) {
     oTerminal.inputs({
       name: inputName,
       kind: inputKind,
+    });
+  });
+  $('#form-engagement').on('submit', function (e) {
+    e.preventDefault();
+    oTerminal.show('engagementsAdd');
+    var inputName = $(this).find('.inputName').val();
+    oTerminal.inputs({
+      name: inputName,
     });
   });
 
