@@ -46,6 +46,10 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.show('engagementsAdd');
   });
+  $('#terminal-show-callerid').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.show('callerIdsAdd');
+  });
 
   // input buttons
   $('#form-dialer').on('submit', function (e) {
@@ -106,7 +110,15 @@ jQuery(document).ready(function($) {
       name: inputName,
     });
   });
+  $('#form-callerid').on('submit', function (e) {
+    e.preventDefault();
+    oTerminal.show('callerIdsAdd');
+    var inputLabel = $(this).find('.inputLabel').val();
+    var inputPhoneNumber = $(this).find('.inputPhoneNumber').val();
+    oTerminal.inputs({
+      label: inputLabel,
+      phoneNumber: inputPhoneNumber,
+    });
+  });
 
 });
-
-
