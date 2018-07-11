@@ -36,6 +36,80 @@
                 <label for="terminalEmbedCode">Embed Code</label>
                 <textarea class="form-control" id="terminalEmbedCode" rows="7"></textarea>
               </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6>Config Options</h6>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigTerminalId">Terminal ID</label>
+                    <input type="text" class="form-control" name="terminalId" id="terminalConfigTerminalId" placeholder="null">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigInit">Init</label>
+                    <select class="form-control" name="init" id="terminalConfigInit">
+                      <option value=true>True</option>
+                      <option value=false>False</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigPosition">Position</label>
+                    <select class="form-control" name="position" id="terminalConfigPosition">
+                      <option value="right">Right</option>
+                      <option value="left">Left</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigColor">Primary Color</label>
+                    <input type="text" class="form-control" name="color" id="terminalConfigColor" placeholder="#000">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigIsAnchored">Is Anchored</label>
+                    <select class="form-control" name="isAnchored" id="terminalConfigIsAnchored">
+                      <option value=true>True</option>
+                      <option value=false>False</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigAppendedTo">Appended To</label>
+                    <input type="text" class="form-control" name="appendedTo" id="terminalConfigAppendedTo" placeholder="null">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigWidth">Width</label>
+                    <input type="text" class="form-control" name="width" id="terminalConfigWidth" placeholder="600px">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigHeight">Height</label>
+                    <input type="text" class="form-control" name="height" id="terminalConfigHeight" placeholder="500px">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigHeightCollapsed">Height Collapsed</label>
+                    <input type="text" class="form-control" name="heightCollapsed" id="terminalConfigHeightCollapsed" placeholder="35px">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigZIndex">Z Index</label>
+                    <input type="text" class="form-control" name="zIndex" id="terminalConfigZIndex" placeholder="2000">
+                  </div>
+                </div>
+              </div>
               <button type="submit" class="btn btn-white">Render</button>
             </form>
           </div>

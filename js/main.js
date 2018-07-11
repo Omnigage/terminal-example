@@ -5,6 +5,28 @@ jQuery(document).ready(function($) {
   // handle embedding the terminal code into DOM
   $('#form-render').on('submit', function (e) {
     e.preventDefault();
+
+    // prepare the config options
+    var config = {};
+    var formData = $('#form-render').serializeArray();
+    for (var i = 0; i < formData.length; i++){
+      // convert to expected type
+      if (formData[i]['value'] === 'true') {
+        formData[i]['value'] = true;
+      }
+      if (formData[i]['value'] === 'false') {
+        formData[i]['value'] = false;
+      }
+      if (formData[i]['value'] === 'null') {
+        formData[i]['value'] = null;
+      }
+      // exclude empty strings
+      if (formData[i]['value'] !== '') {
+        config[formData[i]['name']] = formData[i]['value'];
+      }
+    }
+
+    // prepare the embed code
     var script = document.createElement('script');
     var scriptValue = $('#terminalEmbedCode').val();
     // simple stripping of script tags for easier injection/execution
@@ -12,6 +34,9 @@ jQuery(document).ready(function($) {
     scriptValue = scriptValue.replace('</script>', '');
     script.text = scriptValue;
     document.body.appendChild(script);
+
+    // set config
+    window.Omnigage.terminal.config(config);
 
     // Set global variables
     window.Omnigage.terminal.ready(function() {
