@@ -10,10 +10,12 @@ var configuration = {
       html: './*.html',
       css: [
         './node_modules/bootstrap/dist/css/bootstrap.min.css',
+        './node_modules/pickr-widget/dist/pickr.min.css',
         './css/styles.css'
       ],
       js: [
         './node_modules/jquery/dist/jquery.min.js',
+        './node_modules/pickr-widget/dist/pickr.min.js',
         './js/main.js'
       ]
     },

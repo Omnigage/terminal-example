@@ -36,117 +36,237 @@
                 <label for="terminalEmbedCode">Embed Code</label>
                 <textarea class="form-control" id="terminalEmbedCode" rows="7"></textarea>
               </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6>Config Options</h6>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigTerminalId">Terminal ID</label>
+                    <input type="text" class="form-control" name="terminalId" id="terminalConfigTerminalId" placeholder="null">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigInit">Init</label>
+                    <select class="form-control" name="init" id="terminalConfigInit">
+                      <option value=true>True</option>
+                      <option value=false>False</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigPosition">Position</label>
+                    <select class="form-control" name="position" id="terminalConfigPosition">
+                      <option value="right">Right</option>
+                      <option value="left">Left</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigTheme">Theme</label>
+                    <select class="form-control" name="theme" id="terminalConfigTheme">
+                      <option value="dark">Dark</option>
+                      <option value="light">Light</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigColor">Primary Color</label>
+                    <input type="hidden" class="form-control" name="color" id="terminalConfigColor" placeholder="#000">
+                    <div class="color-picker form-control"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigIsAnchored">Is Anchored</label>
+                    <select class="form-control" name="isAnchored" id="terminalConfigIsAnchored">
+                      <option value=true>True</option>
+                      <option value=false>False</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigAppendedTo">Appended To</label>
+                    <input type="text" class="form-control" name="appendedTo" id="terminalConfigAppendedTo" placeholder="null">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigWidth">Width</label>
+                    <input type="text" class="form-control" name="width" id="terminalConfigWidth" placeholder="600px">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigHeight">Height</label>
+                    <input type="text" class="form-control" name="height" id="terminalConfigHeight" placeholder="500px">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigHeightCollapsed">Height Collapsed</label>
+                    <input type="text" class="form-control" name="heightCollapsed" id="terminalConfigHeightCollapsed" placeholder="35px">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigZIndex">Z Index</label>
+                    <input type="text" class="form-control" name="zIndex" id="terminalConfigZIndex" placeholder="2000">
+                  </div>
+                </div>
+              </div>
               <button type="submit" class="btn btn-white">Render</button>
             </form>
           </div>
         </div>
       </div>
     </header>
-    <section id="remaining-steps" class="bg-light">
-      <div class="container bg-light">
-        <div class="row panel">
-          <div class="col-6">
-            <h2 class="font-weight-light">Next,</h2>
-            <p>Login, and interact with the terminal application.</p>
-            <h4>Dialer</h4>
-            <form id="form-dialer">
-              <div class="form-group">
-                <label for="dialerInputTo">To</label>
-                <input type="text" class="form-control inputTo" id="dialerInputTo" placeholder="+15554443333">
-              </div>
-              <div class="form-group">
-                <label for="dialerInputFrom">From</label>
-                <input type="text" class="form-control inputFrom" id="dialerInputFrom" placeholder="+15554443333">
-              </div>
-              <div class="form-group">
-                <label for="dialerInputParentTo">Agent's Number</label>
-                <input type="text" class="form-control inputParentTo" id="dialerInputParentTo" placeholder="+15554443333">
-              </div>
-              <div class="form-group">
-                <label for="dialerInputVoiceTemplate">Voice Template ID</label>
-                <input type="text" class="form-control inputVoiceTemplate" id="dialerInputVoiceTemplate" placeholder="cu8Eo9RyrUsV4MXEiDZpLM">
-              </div>
-              <button id="terminal-show-dialer" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
-            </form>
+    <section id="remaining-steps">
+      <div class="bg-light section">
+        <div class="container bg-light">
+          <div class="row panel">
+            <div class="col-6">
+              <h2 class="font-weight-light">Next,</h2>
+              <p>Login, and interact with the terminal application.</p>
+              <h4>Dialer</h4>
+              <form id="form-dialer">
+                <div class="form-group">
+                  <label for="dialerInputTo">To</label>
+                  <input type="text" class="form-control inputTo" id="dialerInputTo" placeholder="+15554443333">
+                </div>
+                <div class="form-group">
+                  <label for="dialerInputFrom">From</label>
+                  <input type="text" class="form-control inputFrom" id="dialerInputFrom" placeholder="+15554443333">
+                </div>
+                <div class="form-group">
+                  <label for="dialerInputParentTo">Agent's Number</label>
+                  <input type="text" class="form-control inputParentTo" id="dialerInputParentTo" placeholder="+15554443333">
+                </div>
+                <div class="form-group">
+                  <label for="dialerInputVoiceTemplate">Voice Template ID</label>
+                  <input type="text" class="form-control inputVoiceTemplate" id="dialerInputVoiceTemplate" placeholder="cu8Eo9RyrUsV4MXEiDZpLM">
+                </div>
+                <button id="terminal-show-dialer" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <div class="row panel">
-          <div class="col-6">
-            <h3>Texter</h3>
-            <form id="form-texter">
-              <div class="form-group">
-                <label for="texterInputTo">To</label>
-                <input type="text" class="form-control inputTo" id="texterInputTo" placeholder="+15554443333">
-              </div>
-              <div class="form-group">
-                <label for="texterInputFrom">From</label>
-                <input type="text" class="form-control inputFrom" id="texterInputFrom" placeholder="+15554443333">
-              </div>
-              <div class="form-group">
-                <label for="texterInputBody">Body</label>
-                <textarea class="form-control inputBody" id="texterInputBody" rows="3"></textarea>
-              </div>
-              <button id="terminal-show-texter" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
-            </form>
+          <div class="row panel">
+            <div class="col-6">
+              <h3>Texter</h3>
+              <form id="form-texter">
+                <div class="form-group">
+                  <label for="texterInputTo">To</label>
+                  <input type="text" class="form-control inputTo" id="texterInputTo" placeholder="+15554443333">
+                </div>
+                <div class="form-group">
+                  <label for="texterInputFrom">From</label>
+                  <input type="text" class="form-control inputFrom" id="texterInputFrom" placeholder="+15554443333">
+                </div>
+                <div class="form-group">
+                  <label for="texterInputBody">Body</label>
+                  <textarea class="form-control inputBody" id="texterInputBody" rows="3"></textarea>
+                </div>
+                <button id="terminal-show-texter" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <div class="row panel">
-          <div class="col-6">
-            <h3>Emailer</h3>
-            <form id="form-emailer">
-              <div class="form-group">
-                <label for="emailerInputTo">To</label>
-                <input type="email" class="form-control inputTo" id="emailerInputTo" placeholder="to@domain.com">
-              </div>
-              <div class="form-group">
-                <label for="emailerInputFrom">From</label>
-                <input type="email" class="form-control inputFrom" id="emailerInputFrom" placeholder="from@domain.com">
-              </div>
-              <div class="form-group">
-                <label for="emailerInputSubject">Subject</label>
-                <input type="text" class="form-control inputSubject" id="emailerInputSubject" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <label for="emailerInputBody">Body</label>
-                <textarea class="form-control inputBody" id="emailerInputBody" rows="3"></textarea>
-              </div>
-              <button id="terminal-show-emailer" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
-            </form>
+          <div class="row panel">
+            <div class="col-6">
+              <h3>Emailer</h3>
+              <form id="form-emailer">
+                <div class="form-group">
+                  <label for="emailerInputTo">To</label>
+                  <input type="email" class="form-control inputTo" id="emailerInputTo" placeholder="to@domain.com">
+                </div>
+                <div class="form-group">
+                  <label for="emailerInputFrom">From</label>
+                  <input type="email" class="form-control inputFrom" id="emailerInputFrom" placeholder="from@domain.com">
+                </div>
+                <div class="form-group">
+                  <label for="emailerInputSubject">Subject</label>
+                  <input type="text" class="form-control inputSubject" id="emailerInputSubject" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                  <label for="emailerInputBody">Body</label>
+                  <textarea class="form-control inputBody" id="emailerInputBody" rows="3"></textarea>
+                </div>
+                <button id="terminal-show-emailer" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <div class="row panel">
-          <div class="col-6">
-            <h3>Voice Template</h3>
-            <form id="form-voiceTemplate">
-              <div class="form-group">
-                <label for="voiceTemplateInputName">Name</label>
-                <input type="text" class="form-control inputName" id="voiceTemplateInputName" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="voiceTemplateInputKind">Kind</label>
-                <select class="form-control inputKind" id="voiceTemplateInputKind">
-                  <option value="audio">Audio</option>
-                  <option value="text">Text</option>
-                </select>
-              </div>
-              <button id="terminal-show-voiceTemplate" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
-            </form>
+          <div class="row panel">
+            <div class="col-6">
+              <h3>Voice Template</h3>
+              <form id="form-voiceTemplate">
+                <div class="form-group">
+                  <label for="voiceTemplateInputName">Name</label>
+                  <input type="text" class="form-control inputName" id="voiceTemplateInputName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                  <label for="voiceTemplateInputKind">Kind</label>
+                  <select class="form-control inputKind" id="voiceTemplateInputKind">
+                    <option value="audio">Audio</option>
+                    <option value="text">Text</option>
+                  </select>
+                </div>
+                <button id="terminal-show-voiceTemplate" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <div class="row panel">
-          <div class="col-6">
-            <h3>Engagement</h3>
-            <form id="form-engagement">
-              <div class="form-group">
-                <label for="engagementInputName">Name</label>
-                <input type="text" class="form-control inputName" id="engagementInputName" placeholder="Name">
+          <div class="row panel">
+            <div class="col-6">
+              <h3>Engagement</h3>
+              <form id="form-engagement">
+                <div class="form-group">
+                  <label for="engagementInputName">Name</label>
+                  <input type="text" class="form-control inputName" id="engagementInputName" placeholder="Name">
+                </div>
+                <button id="terminal-show-engagement" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="bg-offlight section">
+        <div class="container">
+          <div class="row panel">
+            <div class="col-12">
+              <h2 class="font-weight-light">Other Options,</h2>
+            </div>
+            <div class="col-6">
+              <div class="row margin-bottom-30">
+                <div class="col-12 margin-bottom-30">
+                  <h5>.destroy()</h5>
+                  <p>Destroy the current Terminal instance.</p>
+                  <a id="terminal-destroy" class="btn btn-danger">Destroy</a>
+                </div>
+                <div class="col-12 margin-bottom-30">
+                  <h5>.init()</h5>
+                  <p>Initialize the Terminal instance.</p>
+                  <a id="terminal-init" class="btn btn-primary">Init</a>
+                </div>
+                <div class="col-12 margin-bottom-30">
+                  <h5>.close()</h5>
+                  <p>If open, Terminal will be closed.</p>
+                  <a id="terminal-close" class="btn btn-primary">Close</a>
+                </div>
+                <div class="col-12 margin-bottom-30">
+                  <h5>.open()</h5>
+                  <p>If closed, Terminal will be opened.</p>
+                  <a id="terminal-open" class="btn btn-primary">Open</a>
+                </div>
               </div>
-              <button id="terminal-show-engagement" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -168,6 +288,8 @@
         </div>
 
       </div>
+      <!-- Options -->
+
     </section>
   </main>
 
