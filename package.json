@@ -21,7 +21,8 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.5.0",
-    "jquery": "^2.2.4"
+    "jquery": "^2.2.4",
+    "pickr-widget": "^0.1.7"
   },
   "dependencies": {}
 }

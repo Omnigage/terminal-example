@@ -2,6 +2,28 @@ jQuery(document).ready(function($) {
   var Omnigage;
   var oTerminal;
 
+  // initialize the color picker - https://github.com/Simonwep/pickr
+  const pickr = Pickr.create({
+    el: '.color-picker',
+    // default: '#4286f4',
+    components: {
+      preview: true,
+      opacity: true,
+      hue: true,
+      output: {
+        hex: true,
+        rgba: false,
+        hsva: false,
+        input: true,
+        clear: false
+      },
+    },
+    onChange(hsva) {
+      console.log('hsva', hsva);
+      $('#terminalConfigColor').val(hsva.toHEX().toString());
+    },
+  });
+
   // handle embedding the terminal code into DOM
   $('#form-render').on('submit', function (e) {
     e.preventDefault();

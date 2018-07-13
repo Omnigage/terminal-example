@@ -17,3 +17,7 @@ section {
 #remaining-steps.active{
   display:block;
 }
+
+.pcr-app{
+  z-index:1;
+}
