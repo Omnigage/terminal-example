@@ -5,7 +5,6 @@ jQuery(document).ready(function($) {
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
     el: '.color-picker',
-    // default: '#4286f4',
     components: {
       preview: true,
       opacity: true,
@@ -19,7 +18,7 @@ jQuery(document).ready(function($) {
       },
     },
     onChange(hsva) {
-      console.log('hsva', hsva);
+      // set the configColor on change
       $('#terminalConfigColor').val(hsva.toHEX().toString());
     },
   });
@@ -152,6 +151,24 @@ jQuery(document).ready(function($) {
     oTerminal.inputs({
       name: inputName,
     });
+  });
+
+  // misc options
+  $('#terminal-destroy').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.destroy();
+  });
+  $('#terminal-init').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.init();
+  });
+  $('#terminal-close').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.close();
+  });
+  $('#terminal-open').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.open();
   });
 
 });
