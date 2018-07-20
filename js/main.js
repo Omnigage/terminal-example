@@ -107,6 +107,24 @@ jQuery(document).ready(function($) {
     oTerminal.render('callerIdsAdd');
   });
 
+  // dialer actions
+  $('#terminal-dial-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('dial');
+  });
+  $('#terminal-hangup-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('hangup');
+  });
+  $('#terminal-voicemailDrop-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('voicemailDrop');
+  });
+  $('#terminal-playDrop-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('playDrop');
+  });
+
   // input buttons
   $('#form-dialer').on('submit', function (e) {
     e.preventDefault();
