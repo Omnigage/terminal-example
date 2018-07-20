@@ -48,6 +48,19 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
+                    <label for="terminalConfigRender">Render</label>
+                    <select class="form-control" name="render" id="terminalConfigRender">
+                      <option value="dialer">Dialer</option>
+                      <option value="texter">Texter</option>
+                      <option value="emailer">Emailer</option>
+                      <option value="voiceTemplates">Voice Templates</option>
+                      <option value="engagements">Engagements</option>
+                      <option value="callerIds">Caller IDs</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
                     <label for="terminalConfigInit">Init</label>
                     <select class="form-control" name="init" id="terminalConfigInit">
                       <option value=true>True</option>
@@ -151,7 +164,7 @@
                   <label for="dialerInputVoiceTemplate">Voice Template ID</label>
                   <input type="text" class="form-control inputVoiceTemplate" id="dialerInputVoiceTemplate" placeholder="cu8Eo9RyrUsV4MXEiDZpLM">
                 </div>
-                <button id="terminal-show-dialer" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+                <button id="terminal-render-dialer" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
             </div>
           </div>
@@ -172,7 +185,7 @@
                   <label for="texterInputBody">Body</label>
                   <textarea class="form-control inputBody" id="texterInputBody" rows="3"></textarea>
                 </div>
-                <button id="terminal-show-texter" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+                <button id="terminal-render-texter" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
             </div>
           </div>
@@ -197,7 +210,7 @@
                   <label for="emailerInputBody">Body</label>
                   <textarea class="form-control inputBody" id="emailerInputBody" rows="3"></textarea>
                 </div>
-                <button id="terminal-show-emailer" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+                <button id="terminal-render-emailer" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
             </div>
           </div>
@@ -217,7 +230,7 @@
                     <option value="text">Text</option>
                   </select>
                 </div>
-                <button id="terminal-show-voiceTemplate" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+                <button id="terminal-render-voiceTemplate" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
             </div>
           </div>
@@ -230,7 +243,7 @@
                   <label for="engagementInputName">Name</label>
                   <input type="text" class="form-control inputName" id="engagementInputName" placeholder="Name">
                 </div>
-                <button id="terminal-show-engagement" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+                <button id="terminal-render-engagement" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
             </div>
           </div>
@@ -247,7 +260,7 @@
                   <label for="calleridInputPhoneNumber">Phone Number</label>
                   <input type="text" class="form-control inputPhoneNumber" id="calleridInputPhoneNumber" placeholder="+15554443333">
                 </div>
-                <button id="terminal-show-callerid" type="button" class="btn btn-primary">Show</button> <button type="submit" class="btn btn-primary">Fill</button>
+                <button id="terminal-render-callerid" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
             </div>
           </div>

@@ -66,41 +66,41 @@ jQuery(document).ready(function($) {
       // lock the form
       $('#form-render').find('input, textarea, button, select').attr('disabled', true);
 
-      // unlock/show step2
+      // unlock/render step2
       $('#remaining-steps').addClass('active');
     });
   });
 
-  // show buttons
-  $('#terminal-show-dialer').on('click', function (e) {
+  // render buttons
+  $('#terminal-render-dialer').on('click', function (e) {
     e.preventDefault();
-    oTerminal.show('dialer');
+    oTerminal.render('dialer');
   });
-  $('#terminal-show-texter').on('click', function (e) {
+  $('#terminal-render-texter').on('click', function (e) {
     e.preventDefault();
-    oTerminal.show('texter');
+    oTerminal.render('texter');
   });
-  $('#terminal-show-emailer').on('click', function (e) {
+  $('#terminal-render-emailer').on('click', function (e) {
     e.preventDefault();
-    oTerminal.show('emailer');
+    oTerminal.render('emailer');
   });
-  $('#terminal-show-voiceTemplate').on('click', function (e) {
+  $('#terminal-render-voiceTemplate').on('click', function (e) {
     e.preventDefault();
-    oTerminal.show('voiceTemplatesAdd');
+    oTerminal.render('voiceTemplatesAdd');
   });
-  $('#terminal-show-engagement').on('click', function (e) {
+  $('#terminal-render-engagement').on('click', function (e) {
     e.preventDefault();
-    oTerminal.show('engagementsAdd');
+    oTerminal.render('engagementsAdd');
   });
-  $('#terminal-show-callerid').on('click', function (e) {
+  $('#terminal-render-callerid').on('click', function (e) {
     e.preventDefault();
-    oTerminal.show('callerIdsAdd');
+    oTerminal.render('callerIdsAdd');
   });
 
   // input buttons
   $('#form-dialer').on('submit', function (e) {
     e.preventDefault();
-    oTerminal.show('dialer');
+    oTerminal.render('dialer');
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputParentTo = $(this).find('.inputParentTo').val();
@@ -114,7 +114,7 @@ jQuery(document).ready(function($) {
   });
   $('#form-texter').on('submit', function (e) {
     e.preventDefault();
-    oTerminal.show('texter');
+    oTerminal.render('texter');
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputBody = $(this).find('.inputBody').val();
@@ -126,7 +126,7 @@ jQuery(document).ready(function($) {
   });
   $('#form-emailer').on('submit', function (e) {
     e.preventDefault();
-    oTerminal.show('emailer');
+    oTerminal.render('emailer');
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputSubject = $(this).find('.inputSubject').val();
@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
   });
   $('#form-voiceTemplate').on('submit', function (e) {
     e.preventDefault();
-    oTerminal.show('voiceTemplatesAdd');
+    oTerminal.render('voiceTemplatesAdd');
     var inputName = $(this).find('.inputName').val();
     var inputKind = $(this).find('.inputKind option:selected').val();
     oTerminal.inputs({
@@ -150,7 +150,7 @@ jQuery(document).ready(function($) {
   });
   $('#form-engagement').on('submit', function (e) {
     e.preventDefault();
-    oTerminal.show('engagementsAdd');
+    oTerminal.render('engagementsAdd');
     var inputName = $(this).find('.inputName').val();
     oTerminal.inputs({
       name: inputName,
@@ -158,7 +158,7 @@ jQuery(document).ready(function($) {
   });
   $('#form-callerid').on('submit', function (e) {
     e.preventDefault();
-    oTerminal.show('callerIdsAdd');
+    oTerminal.render('callerIdsAdd');
     var inputLabel = $(this).find('.inputLabel').val();
     var inputPhoneNumber = $(this).find('.inputPhoneNumber').val();
     oTerminal.inputs({
