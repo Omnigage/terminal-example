@@ -1,5 +1,8 @@
 jQuery(document).ready(function($) {
   var oTerminal;
+  var notyf = new Notyf({
+    delay: 4000,
+  });
 
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
@@ -131,16 +134,16 @@ jQuery(document).ready(function($) {
   // subscribe to dialer events
   function dialerEvents(terminal) {
     terminal.on('dial', function () {
-      $('#form-dialer .box').append('<div>dial event successful<div>');
+      notyf.confirm('dial event successful');
     });
     terminal.on('hangup', function () {
-      $('#form-dialer .box').append('<div>hangup event successful<div>');
+      notyf.confirm('hangup event successful');
     });
     terminal.on('voicemailDrop', function () {
-      $('#form-dialer .box').append('<div>voicemailDrop event successful<div>');
+      notyf.confirm('voicemailDrop event successful');
     });
     terminal.on('playDrop', function () {
-      $('#form-dialer .box').append('<div>playDrop event successful<div>');
+      notyf.confirm('playDrop event successful');
     });
   }
 

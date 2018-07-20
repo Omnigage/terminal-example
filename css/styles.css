@@ -7,11 +7,6 @@ header{
 .panel{
   padding: 40px 0;
 }
-.box{
-  border: 1px solid #aeaeae;
-  padding: 5px 10px;
-  background-color: white;
-}
 .margin-top-10{
   margin-top:10px;
 }
@@ -34,6 +29,14 @@ header{
 
 .pcr-app{
   z-index:1;
+}
+.notyf{
+  bottom:auto;
+  top:0;
+}
+.notyf__wrapper{
+  padding-top:10px;
+  padding-bottom:10px;
 }
 .btn:not(.btn-white){
   color:white !important;
