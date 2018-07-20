@@ -134,16 +134,16 @@ jQuery(document).ready(function($) {
   // subscribe to dialer events
   function dialerEvents(terminal) {
     terminal.on('dial', function () {
-      notyf.confirm('dial event successful');
+      notyf.confirm('dial event');
     });
     terminal.on('hangup', function () {
-      notyf.confirm('hangup event successful');
+      notyf.confirm('hangup event');
     });
     terminal.on('voicemailDrop', function () {
-      notyf.confirm('voicemailDrop event successful');
+      notyf.confirm('voicemailDrop event');
     });
     terminal.on('playDrop', function () {
-      notyf.confirm('playDrop event successful');
+      notyf.confirm('playDrop event');
     });
   }
 
