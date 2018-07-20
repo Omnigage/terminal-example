@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-  var Omnigage;
   var oTerminal;
 
   // initialize the color picker - https://github.com/Simonwep/pickr
@@ -47,8 +46,19 @@ jQuery(document).ready(function($) {
       }
     }
 
+    // Check if terminal is already rendered
+    if (oTerminal) {
+      // Destroy terminal
+      oTerminal.destroy();
+      $('#omnigage-script-embed').remove();
+    }
+
+    // lock the form to prevent multi-click
+    $('#form-render').find('input, textarea, button, select').attr('disabled', true);
+
     // prepare the embed code
     var script = document.createElement('script');
+    script.setAttribute('id', 'omnigage-script-embed');
     var scriptValue = $('#terminalEmbedCode').val();
     // simple stripping of script tags for easier injection/execution
     scriptValue = scriptValue.replace('<script>', '');
@@ -61,10 +71,10 @@ jQuery(document).ready(function($) {
 
     // Set global variables
     window.Omnigage.terminal.ready(function() {
-      Omnigage = window.Omnigage;
-      oTerminal = Omnigage.terminal;
-      // lock the form
-      $('#form-render').find('input, textarea, button, select').attr('disabled', true);
+      oTerminal = window.Omnigage.terminal;
+      // unlock the form
+      $('#form-render').find('input, textarea, button, select').attr('disabled', false);
+      $('#form-render button').text('Re-Render');
 
       // unlock/render step2
       $('#remaining-steps').addClass('active');
