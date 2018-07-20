@@ -78,6 +78,9 @@ jQuery(document).ready(function($) {
 
       // unlock/render step2
       $('#remaining-steps').addClass('active');
+
+      // subscribe to dialer events
+      dialerEvents(oTerminal);
     });
   });
 
@@ -124,6 +127,22 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.perform('playDrop');
   });
+
+  // subscribe to dialer events
+  function dialerEvents(terminal) {
+    terminal.on('dial', function () {
+      $('#form-dialer .box').append('<div>dial event successful<div>');
+    });
+    terminal.on('hangup', function () {
+      $('#form-dialer .box').append('<div>hangup event successful<div>');
+    });
+    terminal.on('voicemailDrop', function () {
+      $('#form-dialer .box').append('<div>voicemailDrop event successful<div>');
+    });
+    terminal.on('playDrop', function () {
+      $('#form-dialer .box').append('<div>playDrop event successful<div>');
+    });
+  }
 
   // input buttons
   $('#form-dialer').on('submit', function (e) {

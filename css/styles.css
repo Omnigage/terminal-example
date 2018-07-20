@@ -7,7 +7,12 @@ header{
 .panel{
   padding: 40px 0;
 }
-.actions{
+.box{
+  border: 1px solid #aeaeae;
+  padding: 5px 10px;
+  background-color: white;
+}
+.margin-top-10{
   margin-top:10px;
 }
 .margin-bottom-30{
