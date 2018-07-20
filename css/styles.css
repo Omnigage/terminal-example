@@ -7,6 +7,9 @@ header{
 .panel{
   padding: 40px 0;
 }
+.margin-top-10{
+  margin-top:10px;
+}
 .margin-bottom-30{
   margin-bottom:30px;
 }
@@ -26,6 +29,14 @@ header{
 
 .pcr-app{
   z-index:1;
+}
+.notyf{
+  bottom:auto;
+  top:0;
+}
+.notyf__wrapper{
+  padding-top:10px;
+  padding-bottom:10px;
 }
 .btn:not(.btn-white){
   color:white !important;

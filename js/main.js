@@ -1,6 +1,8 @@
 jQuery(document).ready(function($) {
-  var Omnigage;
   var oTerminal;
+  var notyf = new Notyf({
+    delay: 4000,
+  });
 
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
@@ -47,8 +49,19 @@ jQuery(document).ready(function($) {
       }
     }
 
+    // Check if terminal is already rendered
+    if (oTerminal) {
+      // Destroy terminal
+      oTerminal.destroy();
+      $('#omnigage-script-embed').remove();
+    }
+
+    // lock the form to prevent multi-click
+    $('#form-render').find('input, textarea, button, select').attr('disabled', true);
+
     // prepare the embed code
     var script = document.createElement('script');
+    script.setAttribute('id', 'omnigage-script-embed');
     var scriptValue = $('#terminalEmbedCode').val();
     // simple stripping of script tags for easier injection/execution
     scriptValue = scriptValue.replace('<script>', '');
@@ -61,13 +74,16 @@ jQuery(document).ready(function($) {
 
     // Set global variables
     window.Omnigage.terminal.ready(function() {
-      Omnigage = window.Omnigage;
-      oTerminal = Omnigage.terminal;
-      // lock the form
-      $('#form-render').find('input, textarea, button, select').attr('disabled', true);
+      oTerminal = window.Omnigage.terminal;
+      // unlock the form
+      $('#form-render').find('input, textarea, button, select').attr('disabled', false);
+      $('#form-render button').text('Re-Render');
 
       // unlock/render step2
       $('#remaining-steps').addClass('active');
+
+      // subscribe to dialer events
+      dialerEvents(oTerminal);
     });
   });
 
@@ -96,6 +112,40 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.render('callerIdsAdd');
   });
+
+  // dialer actions
+  $('#terminal-dial-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('dial');
+  });
+  $('#terminal-hangup-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('hangup');
+  });
+  $('#terminal-voicemailDrop-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('voicemailDrop');
+  });
+  $('#terminal-playDrop-dialer').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.perform('playDrop');
+  });
+
+  // subscribe to dialer events
+  function dialerEvents(terminal) {
+    terminal.on('dial', function () {
+      notyf.confirm('dial event');
+    });
+    terminal.on('hangup', function () {
+      notyf.confirm('hangup event');
+    });
+    terminal.on('voicemailDrop', function () {
+      notyf.confirm('voicemailDrop event');
+    });
+    terminal.on('playDrop', function () {
+      notyf.confirm('playDrop event');
+    });
+  }
 
   // input buttons
   $('#form-dialer').on('submit', function (e) {
