@@ -1,3 +1,6 @@
+body{
+  font-weight:300;
+}
 header{
   padding: 100px 0;
 }
@@ -39,6 +42,12 @@ header{
 }
 #terminal-container #omnigage-terminal{
   position:absolute !important;
+  bottom:0;
+}
+#terminal-container.terminal-container-fixed{
+  position:fixed;
+  bottom:0;
+  height:500px;
 }
 
 .pcr-app{

@@ -1,9 +1,12 @@
 jQuery(document).ready(function($) {
   var oTerminal;
+
+  /**
+   * Setup Site
+   */
   var notyf = new Notyf({
     delay: 4000,
   });
-
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
     el: '.color-picker',
@@ -25,6 +28,21 @@ jQuery(document).ready(function($) {
     },
   });
 
+  // On Scroll make terminal sticky
+  $(window).scroll(function() {
+    var terminalContainer = $('#terminal-container');
+    if ($(window).scrollTop() >= $('header').height() - 300) {
+      terminalContainer.addClass('terminal-container-fixed');
+    } else {
+      terminalContainer.removeClass('terminal-container-fixed');
+    }
+    terminalContainer.width(terminalContainer.parent().width());
+  });
+
+
+  /**
+   * Setup Terminal
+   */
   // handle embedding the terminal code into DOM
   $('#form-render').on('submit', function (e) {
     e.preventDefault();
