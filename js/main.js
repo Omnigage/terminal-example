@@ -28,14 +28,9 @@ jQuery(document).ready(function($) {
     },
   });
 
-  // On Scroll make terminal sticky
+  // keeps the terminalContainer the same with as container column
   $(window).scroll(function() {
     var terminalContainer = $('#terminal-container');
-    if ($(window).scrollTop() >= $('header').height() - 300) {
-      terminalContainer.addClass('terminal-container-fixed');
-    } else {
-      terminalContainer.removeClass('terminal-container-fixed');
-    }
     terminalContainer.width(terminalContainer.parent().width());
   });
 
