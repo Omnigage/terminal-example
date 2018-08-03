@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
    * Setup Site
    */
   var notyf = new Notyf({
-    delay: 4000,
+    delay: 5000,
   });
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
@@ -148,8 +148,9 @@ jQuery(document).ready(function($) {
       // unlock/render step2
       $('#remaining-steps').addClass('active');
 
-      // subscribe to dialer events
+      // subscribe to events
       dialerEvents(oTerminal);
+      engagementEvents(oTerminal);
     });
   });
 
@@ -210,6 +211,11 @@ jQuery(document).ready(function($) {
     });
     terminal.on('playDrop', function () {
       notyf.confirm('playDrop event');
+    });
+  }
+  function engagementEvents(terminal) {
+    terminal.on('engagementSubmit', function () {
+      notyf.confirm('engagementSubmit event');
     });
   }
 
