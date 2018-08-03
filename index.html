@@ -135,7 +135,7 @@
                 <div class="col-sm-12">
                   <div class="form-group">
                     <label for="terminalConfigIsEnabled">Hide Sections</label>
-                    <div class="checkboxes">
+                    <div class="checkboxes hide-isEnabled">
                       <label class="checkbox-inline">
                         <input type="checkbox" name="isEnabled" value="dialer"> Dialer
                       </label>
@@ -153,6 +153,77 @@
                       </label>
                       <label class="checkbox-inline">
                         <input type="checkbox" name="isEnabled" value="callerIds"> Caller IDs
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="terminalConfigShowFields">Hide Fields</label>
+                    <div class="checkboxes hide-showFields dialer-checkboxes">
+                      <h6><small>Dialer</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.dialer" value="to"> To
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.dialer" value="from"> From
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.dialer" value="parentTo" checked> Parent To
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.dialer" value="voiceTemplate" checked> Voice Template
+                      </label>
+                    </div>
+                    <div class="checkboxes hide-showFields texter-checkboxes">
+                      <h6><small>Texter</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.texter" value="to"> To
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.texter" value="from"> From
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.texter" value="body" checked> Body
+                      </label>
+                    </div>
+                    <div class="checkboxes hide-showFields emailer-checkboxes">
+                      <h6><small>Emailer</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.emailer" value="to"> To
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.emailer" value="from"> From
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.emailer" value="subject" checked> Subject
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.emailer" value="body"> Body
+                      </label>
+                    </div>
+                    <div class="checkboxes hide-showFields callerIds-checkboxes">
+                      <h6><small>Caller IDs</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.callerIds" value="label"> Label
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.callerIds" value="phoneNumber"> Phone Number
+                      </label>
+                    </div>
+                    <div class="checkboxes hide-showFields engagements-checkboxes">
+                      <h6><small>Engagements</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.engagements" value="name"> Name
+                      </label>
+                    </div>
+                    <div class="checkboxes hide-showFields voiceTemplates-checkboxes">
+                      <h6><small>Voice Templates</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.voiceTemplates" value="name"> Name
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.voiceTemplates" value="kind"> Kind
                       </label>
                     </div>
                   </div>

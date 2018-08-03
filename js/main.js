@@ -65,14 +65,18 @@ jQuery(document).ready(function($) {
       if (formData[i]['value'] !== '') {
         config[formData[i]['name']] = formData[i]['value'];
       }
-      // remove all isEnabled from config
+      // remove all checkboxes from config
       // need to convert to object
       if (formData[i]['name'] === 'isEnabled') {
         delete config['isEnabled'];
       }
+      if (formData[i]['name'].indexOf('showFields') > -1) {
+        delete config[formData[i]['name']];
+      }
     }
-    if ($('#form-render input:checkbox:checked')) {
-      var isDisabledArray = $('#form-render input:checkbox:checked').map(function() {
+    // process isEnabled checkboxes
+    if ($('#form-render .hide-isEnabled input:checkbox:checked')) {
+      var isDisabledArray = $('#form-render .hide-isEnabled input:checkbox:checked').map(function() {
         return $(this).val();
       }).get();
       var isEnabledObject = isDisabledArray.reduce(function(obj, val) {
@@ -81,6 +85,40 @@ jQuery(document).ready(function($) {
       }, {});
       config.isEnabled = isEnabledObject;
     }
+
+    // process showFields checkboxes
+    function processCheckboxGroup(selector) {
+      var isDisabledArray = $('#form-render .' + selector + '-checkboxes input:checkbox:checked').map(function() {
+        return $(this).val();
+      }).get();
+      var showFieldsObject = isDisabledArray.reduce(function(obj, val) {
+        obj[val] = false;
+        return obj;
+      }, {});
+      if (!config.showFields) {
+        config.showFields = {};
+      }
+      config.showFields[selector] = showFieldsObject;
+    }
+    if ($('#form-render .dialer-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('dialer');
+    }
+    if ($('#form-render .texter-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('texter');
+    }
+    if ($('#form-render .emailer-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('emailer');
+    }
+    if ($('#form-render .callerIds-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('callerIds');
+    }
+    if ($('#form-render .engagements-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('engagements');
+    }
+    if ($('#form-render .voiceTemplates-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('voiceTemplates');
+    }
+    console.log('config', config);
 
     // Check if terminal is already rendered
     if (oTerminal) {
