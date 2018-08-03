@@ -27,8 +27,8 @@
   <main>
     <header class="bg-secondary-alt text-white">
       <div class="container">
-        <div class="row">
-          <div class="col-8">
+        <div class="row row-flex">
+          <div class="col-sm-6">
             <h2 class="font-weight-light">First,</h2>
             <p>Create embed code from Omnigage Account application. Create a new terminal embed via the account application's /account/terminals. Copy/Paste this into the input area below and click "render".</p>
             <form id="form-render">
@@ -97,15 +97,15 @@
                   <div class="form-group">
                     <label for="terminalConfigIsAnchored">Is Anchored</label>
                     <select class="form-control" name="isAnchored" id="terminalConfigIsAnchored">
-                      <option value=true>True</option>
                       <option value=false>False</option>
+                      <option value=true>True</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="terminalConfigAppendedTo">Appended To</label>
-                    <input type="text" class="form-control" name="appendedTo" id="terminalConfigAppendedTo" placeholder="null">
+                    <label for="terminalConfigAppendTo">Append To</label>
+                    <input type="text" class="form-control" name="appendTo" id="terminalConfigAppendTo" value="terminal-container" placeholder="null">
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -135,6 +135,9 @@
               </div>
               <button type="submit" class="btn btn-white">Render</button>
             </form>
+          </div>
+          <div class="col-sm-6">
+            <div id="terminal-container"></div>
           </div>
         </div>
       </div>

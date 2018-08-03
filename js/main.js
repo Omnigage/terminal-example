@@ -70,6 +70,7 @@ jQuery(document).ready(function($) {
     document.body.appendChild(script);
 
     // set config
+    window.Omnigage.debug = true;
     window.Omnigage.terminal.config(config);
 
     // Set global variables
