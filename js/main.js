@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
     // prepare the config options
     var config = {};
     var formData = $('#form-render').serializeArray();
-    for (var i = 0; i < formData.length; i++){
+    for (var i = 0; i < formData.length; i++) {
       // convert to expected type
       if (formData[i]['value'] === 'true') {
         formData[i]['value'] = true;
@@ -65,6 +65,21 @@ jQuery(document).ready(function($) {
       if (formData[i]['value'] !== '') {
         config[formData[i]['name']] = formData[i]['value'];
       }
+      // remove all isEnabled from config
+      // need to convert to object
+      if (formData[i]['name'] === 'isEnabled') {
+        delete config['isEnabled'];
+      }
+    }
+    if ($('#form-render input:checkbox:checked')) {
+      var isDisabledArray = $('#form-render input:checkbox:checked').map(function() {
+        return $(this).val();
+      }).get();
+      var isEnabledObject = isDisabledArray.reduce(function(obj, val) {
+        obj[val] = false;
+        return obj;
+      }, {});
+      config.isEnabled = isEnabledObject;
     }
 
     // Check if terminal is already rendered

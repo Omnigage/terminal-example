@@ -132,6 +132,31 @@
                     <input type="text" class="form-control" name="zIndex" id="terminalConfigZIndex" placeholder="2000">
                   </div>
                 </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="terminalConfigIsEnabled">Hide Sections</label>
+                    <div class="checkboxes">
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="dialer"> Dialer
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="texter"> Texter
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="emailer" checked> Emailer
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="engagements"> Engagements
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="voiceTemplates"> Voice Templates
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="callerIds"> Caller IDs
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
               <button type="submit" class="btn btn-white">Render</button>
             </form>
