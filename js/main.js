@@ -118,7 +118,6 @@ jQuery(document).ready(function($) {
     if ($('#form-render .voiceTemplates-checkboxes input:checkbox:checked').length) {
       processCheckboxGroup('voiceTemplates');
     }
-    console.log('config', config);
 
     // Check if terminal is already rendered
     if (oTerminal) {
