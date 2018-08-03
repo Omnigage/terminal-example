@@ -1,9 +1,12 @@
 jQuery(document).ready(function($) {
   var oTerminal;
-  var notyf = new Notyf({
-    delay: 4000,
-  });
 
+  /**
+   * Setup Site
+   */
+  var notyf = new Notyf({
+    delay: 5000,
+  });
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
     el: '.color-picker',
@@ -25,6 +28,16 @@ jQuery(document).ready(function($) {
     },
   });
 
+  // keeps the terminalContainer the same with as container column
+  $(window).scroll(function() {
+    var terminalContainer = $('#terminal-container');
+    terminalContainer.width(terminalContainer.parent().width());
+  });
+
+
+  /**
+   * Setup Terminal
+   */
   // handle embedding the terminal code into DOM
   $('#form-render').on('submit', function (e) {
     e.preventDefault();
@@ -32,7 +45,7 @@ jQuery(document).ready(function($) {
     // prepare the config options
     var config = {};
     var formData = $('#form-render').serializeArray();
-    for (var i = 0; i < formData.length; i++){
+    for (var i = 0; i < formData.length; i++) {
       // convert to expected type
       if (formData[i]['value'] === 'true') {
         formData[i]['value'] = true;
@@ -47,6 +60,58 @@ jQuery(document).ready(function($) {
       if (formData[i]['value'] !== '') {
         config[formData[i]['name']] = formData[i]['value'];
       }
+      // remove all checkboxes from config
+      // need to convert to object
+      if (formData[i]['name'] === 'isEnabled') {
+        delete config['isEnabled'];
+      }
+      if (formData[i]['name'].indexOf('showFields') > -1) {
+        delete config[formData[i]['name']];
+      }
+    }
+    // process isEnabled checkboxes
+    if ($('#form-render .hide-isEnabled input:checkbox:checked')) {
+      var isDisabledArray = $('#form-render .hide-isEnabled input:checkbox:checked').map(function() {
+        return $(this).val();
+      }).get();
+      var isEnabledObject = isDisabledArray.reduce(function(obj, val) {
+        obj[val] = false;
+        return obj;
+      }, {});
+      config.isEnabled = isEnabledObject;
+    }
+
+    // process showFields checkboxes
+    function processCheckboxGroup(selector) {
+      var isDisabledArray = $('#form-render .' + selector + '-checkboxes input:checkbox:checked').map(function() {
+        return $(this).val();
+      }).get();
+      var showFieldsObject = isDisabledArray.reduce(function(obj, val) {
+        obj[val] = false;
+        return obj;
+      }, {});
+      if (!config.showFields) {
+        config.showFields = {};
+      }
+      config.showFields[selector] = showFieldsObject;
+    }
+    if ($('#form-render .dialer-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('dialer');
+    }
+    if ($('#form-render .texter-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('texter');
+    }
+    if ($('#form-render .emailer-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('emailer');
+    }
+    if ($('#form-render .callerIds-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('callerIds');
+    }
+    if ($('#form-render .engagements-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('engagements');
+    }
+    if ($('#form-render .voiceTemplates-checkboxes input:checkbox:checked').length) {
+      processCheckboxGroup('voiceTemplates');
     }
 
     // Check if terminal is already rendered
@@ -70,6 +135,7 @@ jQuery(document).ready(function($) {
     document.body.appendChild(script);
 
     // set config
+    window.Omnigage.debug = true;
     window.Omnigage.terminal.config(config);
 
     // Set global variables
@@ -82,8 +148,9 @@ jQuery(document).ready(function($) {
       // unlock/render step2
       $('#remaining-steps').addClass('active');
 
-      // subscribe to dialer events
+      // subscribe to events
       dialerEvents(oTerminal);
+      engagementEvents(oTerminal);
     });
   });
 
@@ -144,6 +211,11 @@ jQuery(document).ready(function($) {
     });
     terminal.on('playDrop', function () {
       notyf.confirm('playDrop event');
+    });
+  }
+  function engagementEvents(terminal) {
+    terminal.on('engagementSubmit', function () {
+      notyf.confirm('engagementSubmit event');
     });
   }
 
