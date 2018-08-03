@@ -49,6 +49,16 @@ header{
   bottom:0;
   height:500px;
 }
+.checkboxes{
+  margin-bottom:5px;
+}
+.checkboxes h6{
+  margin:0;
+}
+.checkbox-inline{
+  padding-right:5px;
+  font-size:0.9em;
+}
 
 .pcr-app{
   z-index:1;
