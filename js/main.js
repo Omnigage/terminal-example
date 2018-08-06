@@ -35,8 +35,10 @@ jQuery(document).ready(function($) {
   // expand .config-advanced
   $('.show-config-advanced').on('click', function (e) {
     e.preventDefault;
-    $(this).remove();
     $('.config-advanced').addClass('active');
+    setTimeout(() => {
+      $(this).remove();
+    }, 200);
   });
 
 
