@@ -27,11 +27,16 @@ jQuery(document).ready(function($) {
       $('#terminalConfigColor').val(hsva.toHEX().toString());
     },
   });
-
   // keeps the terminalContainer the same with as container column
   $(window).scroll(function() {
     var terminalContainer = $('#terminal-container');
     terminalContainer.width(terminalContainer.parent().width());
+  });
+  // expand .config-advanced
+  $('.show-config-advanced').on('click', function (e) {
+    e.preventDefault;
+    $(this).remove();
+    $('.config-advanced').addClass('active');
   });
 
 
