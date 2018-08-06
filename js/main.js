@@ -27,11 +27,18 @@ jQuery(document).ready(function($) {
       $('#terminalConfigColor').val(hsva.toHEX().toString());
     },
   });
-
   // keeps the terminalContainer the same with as container column
   $(window).scroll(function() {
     var terminalContainer = $('#terminal-container');
     terminalContainer.width(terminalContainer.parent().width());
+  });
+  // expand .config-advanced
+  $('.show-config-advanced').on('click', function (e) {
+    e.preventDefault;
+    $('.config-advanced').addClass('active');
+    setTimeout(() => {
+      $(this).remove();
+    }, 200);
   });
 
 
@@ -69,9 +76,10 @@ jQuery(document).ready(function($) {
         delete config[formData[i]['name']];
       }
     }
+
     // process isEnabled checkboxes
-    if ($('#form-render .hide-isEnabled input:checkbox:checked')) {
-      var isDisabledArray = $('#form-render .hide-isEnabled input:checkbox:checked').map(function() {
+    if ($('#form-render .show-isEnabled input:checkbox:checked')) {
+      var isDisabledArray = $('#form-render .show-isEnabled input:checkbox:not(:checked)').map(function() {
         return $(this).val();
       }).get();
       var isEnabledObject = isDisabledArray.reduce(function(obj, val) {
@@ -83,7 +91,7 @@ jQuery(document).ready(function($) {
 
     // process showFields checkboxes
     function processCheckboxGroup(selector) {
-      var isDisabledArray = $('#form-render .' + selector + '-checkboxes input:checkbox:checked').map(function() {
+      var isDisabledArray = $('#form-render .' + selector + '-checkboxes input:checkbox:not(:checked)').map(function() {
         return $(this).val();
       }).get();
       var showFieldsObject = isDisabledArray.reduce(function(obj, val) {
@@ -95,23 +103,12 @@ jQuery(document).ready(function($) {
       }
       config.showFields[selector] = showFieldsObject;
     }
-    if ($('#form-render .dialer-checkboxes input:checkbox:checked').length) {
-      processCheckboxGroup('dialer');
-    }
-    if ($('#form-render .texter-checkboxes input:checkbox:checked').length) {
-      processCheckboxGroup('texter');
-    }
-    if ($('#form-render .emailer-checkboxes input:checkbox:checked').length) {
-      processCheckboxGroup('emailer');
-    }
-    if ($('#form-render .callerIds-checkboxes input:checkbox:checked').length) {
-      processCheckboxGroup('callerIds');
-    }
-    if ($('#form-render .engagements-checkboxes input:checkbox:checked').length) {
-      processCheckboxGroup('engagements');
-    }
-    if ($('#form-render .voiceTemplates-checkboxes input:checkbox:checked').length) {
-      processCheckboxGroup('voiceTemplates');
+    let showFields = $('#form-render .show-showFields');
+    for (let index = 0; index < showFields.length; index++) {
+      const el = showFields[index];
+      // get the unique selector from class 'dialer-checkboxes'
+      const elType = $(el).attr('class').split(' ')[2].split('-')[0];
+      processCheckboxGroup(elType);
     }
 
     // Check if terminal is already rendered
