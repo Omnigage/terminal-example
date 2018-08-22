@@ -272,6 +272,9 @@ jQuery(document).ready(function($) {
     oTerminal.render('engagementsAdd');
     var inputName = $(this).find('.inputName').val();
     var inputLists = $(this).find('.inputLists').val();
+    if (inputLists) {
+      inputLists = inputLists.replace(/ /g, '').split(',');
+    }
     var inputDirection = $(this).find('.inputDirection option:selected').val();
     oTerminal.inputs({
       name: inputName,
