@@ -271,8 +271,12 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.render('engagementsAdd');
     var inputName = $(this).find('.inputName').val();
+    var inputLists = $(this).find('.inputLists').val();
+    var inputDirection = $(this).find('.inputDirection option:selected').val();
     oTerminal.inputs({
       name: inputName,
+      lists: inputLists,
+      direction: inputDirection,
     });
   });
   $('#form-callerid').on('submit', function (e) {
