@@ -115,6 +115,24 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
+                    <label for="terminalConfigDefaultActivity">Default Activity</label>
+                    <select class="form-control" name="defaultActivity" id="terminalConfigDefaultActivity">
+                      <option selected value>null</option>
+                      <option value="voice">Voice</option>
+                      <option value="text">Text</option>
+                      <option value="dial">Dial</option>
+                      <option value="email">Email</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="terminalConfigSsoUrl">SSO URL</label>
+                    <input type="text" class="form-control" name="ssoUrl" id="terminalConfigSsoUrl" placeholder="null">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
                     <label for="terminalConfigInit">Init</label>
                     <select class="form-control" name="init" id="terminalConfigInit">
                       <option value=true>True</option>
@@ -217,6 +235,12 @@
                       <h6><small>Engagements</small></h6>
                       <label class="checkbox-inline">
                         <input type="checkbox" name="showFields.engagements" value="name" checked> Name
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.engagements" value="direction" checked> Direction
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.engagements" value="lists" checked> Lists
                       </label>
                     </div>
                     <div class="checkboxes show-showFields voiceTemplates-checkboxes">
@@ -356,6 +380,17 @@
                 <div class="form-group">
                   <label for="engagementInputName">Name</label>
                   <input type="text" class="form-control inputName" id="engagementInputName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                  <label for="engagementInputLists">Lists</label>
+                  <input type="text" class="form-control inputLists" id="engagementInputLists" placeholder="h6xfdw, ioN4UR">
+                </div>
+                <div class="form-group">
+                  <label for="engagementInputDirection">Direction</label>
+                  <select class="form-control inputDirection" id="engagementInputDirection">
+                    <option value="outbound">Outbound</option>
+                    <option value="inbound">Inbound</option>
+                  </select>
                 </div>
                 <button id="terminal-render-engagement" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
