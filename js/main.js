@@ -275,11 +275,11 @@ jQuery(document).ready(function($) {
     if (inputLists) {
       inputLists = inputLists.replace(/ /g, '').split(',');
     }
-    var inputDirection = $(this).find('.inputDirection option:selected').val();
+    // var inputDirection = $(this).find('.inputDirection option:selected').val();
     oTerminal.inputs({
       name: inputName,
       lists: inputLists,
-      direction: inputDirection,
+      // direction: inputDirection,
     });
   });
   $('#form-callerid').on('submit', function (e) {
