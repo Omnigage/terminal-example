@@ -168,6 +168,14 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.render('voiceTemplatesAdd');
   });
+  $('#terminal-render-emailTemplate').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.render('emailTemplatesAdd');
+  });
+  $('#terminal-render-textTemplate').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.render('textTemplatesAdd');
+  });
   $('#terminal-render-engagement').on('click', function (e) {
     e.preventDefault();
     oTerminal.render('engagementsAdd');
@@ -265,6 +273,22 @@ jQuery(document).ready(function($) {
     oTerminal.inputs({
       name: inputName,
       kind: inputKind,
+    });
+  });
+  $('#form-emailTemplate').on('submit', function (e) {
+    e.preventDefault();
+    oTerminal.render('emailTemplatesAdd');
+    var inputSubject = $(this).find('.inputSubject').val();
+    oTerminal.inputs({
+      subject: inputSubject,
+    });
+  });
+  $('#form-textTemplate').on('submit', function (e) {
+    e.preventDefault();
+    oTerminal.render('textTemplatesAdd');
+    var inputName = $(this).find('.inputName').val();
+    oTerminal.inputs({
+      name: inputName,
     });
   });
   $('#form-engagement').on('submit', function (e) {

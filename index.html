@@ -48,6 +48,8 @@
                       <option value="texter">Texter</option>
                       <option value="emailer">Emailer</option>
                       <option value="voiceTemplates">Voice Templates</option>
+                      <option value="emailTemplates">Email Templates</option>
+                      <option value="textTemplates">Text Templates</option>
                       <option value="engagements">Engagements</option>
                       <option value="callerIds">Caller IDs</option>
                     </select>
@@ -172,6 +174,12 @@
                         <input type="checkbox" name="isEnabled" value="voiceTemplates" checked> Voice Templates
                       </label>
                       <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="emailTemplates" checked> Email Templates
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="isEnabled" value="textTemplates" checked> Text Templates
+                      </label>
+                      <label class="checkbox-inline">
                         <input type="checkbox" name="isEnabled" value="callerIds" checked> Caller IDs
                       </label>
                     </div>
@@ -250,6 +258,18 @@
                       </label>
                       <label class="checkbox-inline">
                         <input type="checkbox" name="showFields.voiceTemplates" value="kind" checked> Kind
+                      </label>
+                    </div>
+                    <div class="checkboxes show-showFields emailTemplates-checkboxes">
+                      <h6><small>Email Templates</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.emailTemplates" value="subject" checked> Subject
+                      </label>
+                    </div>
+                    <div class="checkboxes show-showFields textTemplates-checkboxes">
+                      <h6><small>Text Templates</small></h6>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" name="showFields.textTemplates" value="name" checked> Name
                       </label>
                     </div>
                   </div>
@@ -369,6 +389,32 @@
                   </select>
                 </div>
                 <button id="terminal-render-voiceTemplate" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="row panel">
+            <div class="col-6">
+              <h3>Email Template</h3>
+              <form id="form-emailTemplate">
+                <div class="form-group">
+                  <label for="emailTemplateInputSubject">Subject</label>
+                  <input type="text" class="form-control inputSubject" id="emailTemplateInputSubject" placeholder="Subject">
+                </div>
+                <button id="terminal-render-emailTemplate" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="row panel">
+            <div class="col-6">
+              <h3>Text Template</h3>
+              <form id="form-textTemplate">
+                <div class="form-group">
+                  <label for="textTemplateInputName">Name</label>
+                  <input type="text" class="form-control inputName" id="textTemplateInputName" placeholder="Name">
+                </div>
+                <button id="terminal-render-textTemplate" type="button" class="btn btn-primary">Render</button> <button type="submit" class="btn btn-primary">Fill</button>
               </form>
             </div>
           </div>
