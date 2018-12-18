@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
     el: '.color-picker',
+    comparison: false,
     components: {
       preview: true,
       opacity: true,
@@ -25,6 +26,26 @@ jQuery(document).ready(function($) {
     onChange(hsva) {
       // set the configColor on change
       $('#terminalConfigColor').val(hsva.toHEX().toString());
+    },
+  });
+  const pickrBackground = Pickr.create({
+    el: '.color-picker-background',
+    comparison: false,
+    components: {
+      preview: true,
+      opacity: true,
+      hue: true,
+      output: {
+        hex: true,
+        rgba: false,
+        hsva: false,
+        input: true,
+        clear: false
+      },
+    },
+    onChange(hsva) {
+      // set the configColor on change
+      $('#terminalConfigBackgroundColor').val(hsva.toHEX().toString());
     },
   });
   // keeps the terminalContainer the same with as container column
