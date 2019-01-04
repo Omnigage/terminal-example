@@ -253,11 +253,15 @@ jQuery(document).ready(function($) {
     var inputFrom = $(this).find('.inputFrom').val();
     var inputParentTo = $(this).find('.inputParentTo').val();
     var inputVoiceTemplate = $(this).find('.inputVoiceTemplate').val();
+    var inputMeta = JSON.parse($(this).find('.inputMeta').val());
+    var inputCallback = $(this).find('.inputCallback').val();
     oTerminal.inputs({
       to: inputTo,
       from: inputFrom,
       parentTo: inputParentTo,
       voiceTemplate: inputVoiceTemplate,
+      meta: inputMeta,
+      callback: inputCallback,
     });
   });
   $('#form-texter').on('submit', function (e) {
