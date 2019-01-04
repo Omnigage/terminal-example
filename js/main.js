@@ -205,6 +205,10 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.render('callerIdsAdd');
   });
+  $('#terminal-render-inbox').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.render('inbox');
+  });
 
   // dialer actions
   $('#terminal-dial-dialer').on('click', function (e) {
