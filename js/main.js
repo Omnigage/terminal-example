@@ -48,11 +48,20 @@ jQuery(document).ready(function($) {
       $('#terminalConfigBackgroundColor').val(hsva.toHEX().toString());
     },
   });
-  // keeps the terminalContainer the same with as container column
-  $(window).scroll(function() {
-    var terminalContainer = $('#terminal-container');
-    terminalContainer.width(terminalContainer.parent().width());
-  });
+  // keeps the terminalContainer the same width as container column
+  function checkIsAnchored () {
+    if ($('#terminalConfigIsAnchored').val() === 'false') {
+      function setWidth() {
+        var terminalContainer = $('#terminal-container');
+        var containerWidth = terminalContainer.parent().width();
+        terminalContainer.width(containerWidth);
+      }
+      setWidth();
+      $(window).scroll(function() {
+        setWidth();
+      });
+    }
+  }
   // expand .config-advanced
   $('.show-config-advanced').on('click', function (e) {
     e.preventDefault;
@@ -141,6 +150,7 @@ jQuery(document).ready(function($) {
 
     // lock the form to prevent multi-click
     $('#form-render').find('input, textarea, button, select').attr('disabled', true);
+    checkIsAnchored();
 
     // prepare the embed code
     var script = document.createElement('script');

@@ -39,15 +39,12 @@ header{
 #terminal-container{
   position:relative;
   height:100%;
-}
-#terminal-container #omnigage-terminal{
-  position:absolute !important;
-  bottom:0;
+  width:100%;
 }
 #terminal-container.terminal-container-fixed{
   position:fixed;
   bottom:0;
-  height:500px;
+  height:600px;
 }
 .config-advanced{
   overflow:hidden;
