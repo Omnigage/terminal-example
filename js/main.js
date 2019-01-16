@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
   // initialize the color picker - https://github.com/Simonwep/pickr
   const pickr = Pickr.create({
     el: '.color-picker',
+    comparison: false,
     components: {
       preview: true,
       opacity: true,
@@ -25,6 +26,26 @@ jQuery(document).ready(function($) {
     onChange(hsva) {
       // set the configColor on change
       $('#terminalConfigColor').val(hsva.toHEX().toString());
+    },
+  });
+  const pickrBackground = Pickr.create({
+    el: '.color-picker-background',
+    comparison: false,
+    components: {
+      preview: true,
+      opacity: true,
+      hue: true,
+      output: {
+        hex: true,
+        rgba: false,
+        hsva: false,
+        input: true,
+        clear: false
+      },
+    },
+    onChange(hsva) {
+      // set the configColor on change
+      $('#terminalConfigBackgroundColor').val(hsva.toHEX().toString());
     },
   });
   // keeps the terminalContainer the same with as container column
@@ -168,6 +189,14 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     oTerminal.render('voiceTemplatesAdd');
   });
+  $('#terminal-render-emailTemplate').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.render('emailTemplatesAdd');
+  });
+  $('#terminal-render-textTemplate').on('click', function (e) {
+    e.preventDefault();
+    oTerminal.render('textTemplatesAdd');
+  });
   $('#terminal-render-engagement').on('click', function (e) {
     e.preventDefault();
     oTerminal.render('engagementsAdd');
@@ -265,6 +294,22 @@ jQuery(document).ready(function($) {
     oTerminal.inputs({
       name: inputName,
       kind: inputKind,
+    });
+  });
+  $('#form-emailTemplate').on('submit', function (e) {
+    e.preventDefault();
+    oTerminal.render('emailTemplatesAdd');
+    var inputSubject = $(this).find('.inputSubject').val();
+    oTerminal.inputs({
+      subject: inputSubject,
+    });
+  });
+  $('#form-textTemplate').on('submit', function (e) {
+    e.preventDefault();
+    oTerminal.render('textTemplatesAdd');
+    var inputName = $(this).find('.inputName').val();
+    oTerminal.inputs({
+      name: inputName,
     });
   });
   $('#form-engagement').on('submit', function (e) {
