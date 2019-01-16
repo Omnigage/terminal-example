@@ -253,11 +253,15 @@ jQuery(document).ready(function($) {
     var inputFrom = $(this).find('.inputFrom').val();
     var inputParentTo = $(this).find('.inputParentTo').val();
     var inputVoiceTemplate = $(this).find('.inputVoiceTemplate').val();
+    var inputMeta = JSON.parse($(this).find('.inputMeta').val());
+    var inputCallback = $(this).find('.inputCallback').val();
     oTerminal.inputs({
       to: inputTo,
       from: inputFrom,
       parentTo: inputParentTo,
       voiceTemplate: inputVoiceTemplate,
+      meta: inputMeta,
+      callback: inputCallback,
     });
   });
   $('#form-texter').on('submit', function (e) {
@@ -266,10 +270,14 @@ jQuery(document).ready(function($) {
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputBody = $(this).find('.inputBody').val();
+    var inputMeta = JSON.parse($(this).find('.inputMeta').val());
+    var inputCallback = $(this).find('.inputCallback').val();
     oTerminal.inputs({
       to: inputTo,
       from: inputFrom,
       body: inputBody,
+      meta: inputMeta,
+      callback: inputCallback,
     });
   });
   $('#form-emailer').on('submit', function (e) {
@@ -279,11 +287,15 @@ jQuery(document).ready(function($) {
     var inputFrom = $(this).find('.inputFrom').val();
     var inputSubject = $(this).find('.inputSubject').val();
     var inputBody = $(this).find('.inputBody').val();
+    var inputMeta = JSON.parse($(this).find('.inputMeta').val());
+    var inputCallback = $(this).find('.inputCallback').val();
     oTerminal.inputs({
       to: inputTo,
       from: inputFrom,
       subject: inputSubject,
       body: inputBody,
+      meta: inputMeta,
+      callback: inputCallback,
     });
   });
   $('#form-voiceTemplate').on('submit', function (e) {
