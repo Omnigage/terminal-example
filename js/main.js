@@ -267,7 +267,11 @@ jQuery(document).ready(function($) {
     var inputFrom = $(this).find('.inputFrom').val();
     var inputParentTo = $(this).find('.inputParentTo').val();
     var inputVoiceTemplate = $(this).find('.inputVoiceTemplate').val();
-    var inputMeta = JSON.parse($(this).find('.inputMeta').val());
+    var inputMeta;
+    var inputMetaVal = $(this).find('.inputMeta').val();
+    if (inputMetaVal) {
+      inputMeta = JSON.parse(inputMetaVal);
+    }
     var inputCallback = $(this).find('.inputCallback').val();
     oTerminal.inputs({
       to: inputTo,
@@ -284,7 +288,11 @@ jQuery(document).ready(function($) {
     var inputTo = $(this).find('.inputTo').val();
     var inputFrom = $(this).find('.inputFrom').val();
     var inputBody = $(this).find('.inputBody').val();
-    var inputMeta = JSON.parse($(this).find('.inputMeta').val());
+    var inputMeta;
+    var inputMetaVal = $(this).find('.inputMeta').val();
+    if (inputMetaVal) {
+      inputMeta = JSON.parse(inputMetaVal);
+    }
     var inputCallback = $(this).find('.inputCallback').val();
     oTerminal.inputs({
       to: inputTo,
@@ -301,7 +309,11 @@ jQuery(document).ready(function($) {
     var inputFrom = $(this).find('.inputFrom').val();
     var inputSubject = $(this).find('.inputSubject').val();
     var inputBody = $(this).find('.inputBody').val();
-    var inputMeta = JSON.parse($(this).find('.inputMeta').val());
+    var inputMeta;
+    var inputMetaVal = $(this).find('.inputMeta').val();
+    if (inputMetaVal) {
+      inputMeta = JSON.parse(inputMetaVal);
+    }
     var inputCallback = $(this).find('.inputCallback').val();
     oTerminal.inputs({
       to: inputTo,
